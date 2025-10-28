@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Файто — клуб киокушинкай</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+    <div class="container">
+        <a class="brand" href="#hero" aria-label="Файто — клуб киокушинкай">
+            <img src="logo.webp" alt="Логотип клуба Файто" class="brand__logo">
+            <span class="brand__text">
+                <span class="brand__name">Файто</span>
+                <span class="brand__subtitle">Клуб киокушинкай</span>
+            </span>
+        </a>
+        <nav class="site-nav" aria-label="Основное меню">
+            <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="sr-only">Меню</span>
+            </button>
+            <ul id="primary-menu" class="site-nav__list">
+                <li><a href="#hero">Главная</a></li>
+                <li><a href="#about">О клубе</a></li>
+                <li><a href="#programs">Направления</a></li>
+                <li><a href="#achievements">Достижения</a></li>
+                <li><a href="#schedule">Расписание</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+        </nav>
+        <a class="cta-btn" href="#signup">Записаться</a>
+    </div>
+</header>
+
+<main>
+    <section id="hero" class="hero" role="banner">
+        <div class="hero__overlay"></div>
+        <div class="hero__content container">
+            <p class="hero__pretitle">Киокушинкай Карате • Санкт-Петербург</p>
+            <h1 class="hero__title">Сила характера рождается на татами</h1>
+            <p class="hero__text">Тренируйтесь в современном клубе с сертифицированными инструкторами, турнирами международного уровня и поддержкой единомышленников.</p>
+            <div class="hero__actions">
+                <a class="cta-btn" href="#signup">Записаться на пробное занятие</a>
+                <a class="ghost-btn" href="#programs">Посмотреть направления</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container stats__grid">
+            <div class="stats__item">
+                <span class="stats__value">14+</span>
+                <span class="stats__label">лет опыта</span>
+            </div>
+            <div class="stats__item">
+                <span class="stats__value">350+</span>
+                <span class="stats__label">выпускников</span>
+            </div>
+            <div class="stats__item">
+                <span class="stats__value">28</span>
+                <span class="stats__label">призовых мест в 2023</span>
+            </div>
+            <div class="stats__item">
+                <span class="stats__value">5</span>
+                <span class="stats__label">чемпионов России</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section about">
+        <div class="container about__layout">
+            <div class="about__media">
+                <img src="image (1).jpg" alt="Тренировка в клубе Файто">
+            </div>
+            <div class="about__content">
+                <h2 class="section__title">Файто — место силы</h2>
+                <p>Мы развиваем традиции киокушинкай с вниманием к каждой детали: от персонализированного подхода до участия в крупнейших турнирах мира. Наша миссия — воспитать уверенных, стойких и дисциплинированных бойцов.</p>
+                <ul class="about__list">
+                    <li>Лицензированные тренеры с международными сертификатами.</li>
+                    <li>Отделения для детей от 5 лет, подростков и взрослых.</li>
+                    <li>Авторские программы физической подготовки и восстановления.</li>
+                </ul>
+                <div class="about__cta">
+                    <a class="ghost-btn" href="#achievements">Познакомиться с тренерами</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="programs" class="section programs">
+        <div class="container">
+            <div class="section__heading">
+                <h2 class="section__title">Направления клуба</h2>
+                <p class="section__subtitle">Группы сформированы по возрасту и уровню подготовки, чтобы каждый ученик достигал целей в комфортной атмосфере.</p>
+            </div>
+            <div class="programs__grid">
+                <article class="program-card">
+                    <div class="program-card__image" style="background-image: url('intro.jpg');"></div>
+                    <div class="program-card__content">
+                        <h3>Детские группы</h3>
+                        <p>Игровые методики, развитие координации, дисциплины и уверенности. Малые группы по 10–12 человек.</p>
+                    </div>
+                </article>
+                <article class="program-card">
+                    <div class="program-card__image" style="background-image: url('image.jpg');"></div>
+                    <div class="program-card__content">
+                        <h3>Спортивная подготовка</h3>
+                        <p>Силовая и ударная техника, регулярные спарринги и участие в соревнованиях под руководством тренеров сборной.</p>
+                    </div>
+                </article>
+                <article class="program-card">
+                    <div class="program-card__image" style="background-image: url('image (2).jpg');"></div>
+                    <div class="program-card__content">
+                        <h3>Взрослые и PRO</h3>
+                        <p>Интенсивные тренировки, индивидуальные планы подготовки и восстановительные программы для максимальных результатов.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements" class="section achievements">
+        <div class="container achievements__layout">
+            <div class="achievements__content">
+                <h2 class="section__title">Победы и признание</h2>
+                <p>Наши спортсмены регулярно становятся призёрами и чемпионами турниров России и Европы. Мы развиваем бойцовский дух и поддерживаем учеников на всех этапах пути — от первого удара до пьедестала.</p>
+                <div class="achievements__highlights">
+                    <div class="highlight">
+                        <span class="highlight__value">12</span>
+                        <span class="highlight__label">международных турниров</span>
+                    </div>
+                    <div class="highlight">
+                        <span class="highlight__value">4</span>
+                        <span class="highlight__label">чёрных пояса ежегодно</span>
+                    </div>
+                    <div class="highlight">
+                        <span class="highlight__value">98%</span>
+                        <span class="highlight__label">возврат учеников</span>
+                    </div>
+                </div>
+            </div>
+            <div class="achievements__media">
+                <img src="Без названия.png" alt="Команда клуба Файто на соревнованиях">
+            </div>
+        </div>
+    </section>
+
+    <section id="schedule" class="section schedule">
+        <div class="container">
+            <div class="section__heading">
+                <h2 class="section__title">Расписание занятий</h2>
+                <p class="section__subtitle">Выбирайте удобное время для тренировок. Мы подскажем, какая группа подойдёт именно вам.</p>
+            </div>
+            <div class="schedule__table-wrapper">
+                <table class="schedule__table">
+                    <thead>
+                        <tr>
+                            <th>Группа</th>
+                            <th>Понедельник</th>
+                            <th>Среда</th>
+                            <th>Пятница</th>
+                            <th>Суббота</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Дети 5–8 лет</td>
+                            <td>17:00</td>
+                            <td>17:00</td>
+                            <td>17:00</td>
+                            <td>11:00</td>
+                        </tr>
+                        <tr>
+                            <td>Подростки 9–14 лет</td>
+                            <td>18:00</td>
+                            <td>18:00</td>
+                            <td>18:00</td>
+                            <td>12:30</td>
+                        </tr>
+                        <tr>
+                            <td>Взрослые и PRO</td>
+                            <td>19:30</td>
+                            <td>19:30</td>
+                            <td>19:30</td>
+                            <td>14:00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section id="signup" class="section signup">
+        <div class="container signup__layout">
+            <div class="signup__content">
+                <h2 class="section__title">Готовы выйти на татами?</h2>
+                <p>Заполните форму, и администратор клуба свяжется с вами, чтобы подобрать группу и предложить бесплатное пробное занятие.</p>
+                <ul class="signup__benefits">
+                    <li>Индивидуальная консультация по целям и уровню.</li>
+                    <li>Занятие в комфортной группе с тренером-наставником.</li>
+                    <li>Доступ в закрытое сообщество клуба.</li>
+                </ul>
+            </div>
+            <form class="signup__form" action="https://formspree.io/f/yourid" method="POST">
+                <label for="signup-name">Имя</label>
+                <input id="signup-name" name="name" type="text" placeholder="Ваше имя" required>
+
+                <label for="signup-phone">Телефон</label>
+                <input id="signup-phone" name="phone" type="tel" placeholder="+7 (___) ___-__-__" required>
+
+                <label for="signup-goal">Цель тренировок</label>
+                <input id="signup-goal" name="goal" type="text" placeholder="Например: подготовка к соревнованиям">
+
+                <button type="submit" class="cta-btn">Записаться</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="contacts" class="section contacts">
+        <div class="container contacts__grid">
+            <div class="contacts__card">
+                <h2 class="section__title">Контакты</h2>
+                <p>Зал находится в 5 минутах от метро. Парковка для посетителей доступна по предварительному запросу.</p>
+                <ul class="contacts__list">
+                    <li><span>Адрес:</span> Санкт-Петербург, пр. Просвещения, 45</li>
+                    <li><span>Телефон:</span> <a href="tel:+78120000000">+7 (812) 000-00-00</a></li>
+                    <li><span>Почта:</span> <a href="mailto:info@faito-club.ru">info@faito-club.ru</a></li>
+                    <li><span>Мы в соцсетях:</span> <a href="https://vk.com" target="_blank" rel="noopener">VK</a>, <a href="https://t.me" target="_blank" rel="noopener">Telegram</a></li>
+                </ul>
+            </div>
+            <div class="contacts__map" aria-hidden="true">
+                <img src="image.jpg" alt="Локация клуба" loading="lazy">
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container site-footer__content">
+        <p>© 2024 Файто. Все права защищены.</p>
+        <a href="#hero">Вернуться наверх</a>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
