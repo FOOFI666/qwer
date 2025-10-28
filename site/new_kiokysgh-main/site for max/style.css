@@ -94,13 +94,13 @@ a:hover {
     align-items: center;
     justify-content: space-between;
     padding: 24px 0;
-    gap: 32px;
+    gap: 20px;
 }
 
 .brand {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
     color: var(--text-light);
 }
 
@@ -136,17 +136,18 @@ a:hover {
 .site-nav__list {
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: 22px;
     list-style: none;
 }
 
 .site-nav__list a {
     color: var(--text-light);
     font-weight: 600;
-    font-size: 15px;
+    font-size: 13px;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.06em;
     position: relative;
+    padding: 4px 0;
 }
 
 .site-nav__list a::after {
@@ -177,6 +178,12 @@ a:hover {
     letter-spacing: 0.02em;
     box-shadow: var(--shadow-md);
     transition: var(--transition);
+}
+
+.site-header .cta-btn {
+    padding: 12px 22px;
+    font-size: 14px;
+    white-space: nowrap;
 }
 
 .cta-btn:hover {
@@ -531,10 +538,103 @@ a:hover {
     background: var(--surface);
 }
 
-.testimonials__grid {
+.carousel {
+    --carousel-gap: 28px;
+    --carousel-item-width: min(340px, 82vw);
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 28px;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+    width: 100%;
+}
+
+.carousel__viewport {
+    display: flex;
+    gap: var(--carousel-gap);
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    padding: 16px 8px;
+    scroll-padding: 16px;
+    margin: 0;
+    flex: 1 1 auto;
+    scrollbar-width: none;
+    grid-column: 2;
+}
+
+.carousel__viewport::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel__viewport > * {
+    flex: 0 0 var(--carousel-item-width);
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+
+.carousel__control {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(18, 21, 32, 0.08);
+    color: var(--bg-dark);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 10px 25px rgba(8, 12, 19, 0.12);
+}
+
+.carousel__control--prev {
+    grid-column: 1;
+}
+
+.carousel__control--next {
+    grid-column: 3;
+}
+
+.carousel__control:hover,
+.carousel__control:focus-visible {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+    color: var(--text-light);
+}
+
+.carousel__control:disabled {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.carousel__dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 18px;
+    grid-column: 1 / -1;
+}
+
+.carousel__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(18, 21, 32, 0.16);
+    cursor: pointer;
+    padding: 0;
+    transition: var(--transition);
+}
+
+.carousel__dot[aria-current="true"],
+.carousel__dot:hover,
+.carousel__dot:focus-visible {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+}
+
+.testimonials__carousel {
+    --carousel-item-width: min(360px, 80vw);
 }
 
 .testimonial-card {
@@ -544,7 +644,8 @@ a:hover {
     box-shadow: var(--shadow-md);
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 18px;
+    min-height: 100%;
 }
 
 .testimonial-card h3 {
@@ -557,56 +658,109 @@ a:hover {
     color: var(--text-muted);
 }
 
+.testimonial-card__rating {
+    display: flex;
+    gap: 4px;
+    color: #f6b800;
+    font-size: 18px;
+    letter-spacing: 0.08em;
+}
+
+.testimonial-card__rating span {
+    line-height: 1;
+}
+
 /* Achievements */
 .achievements {
     background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-darker) 100%);
     color: var(--text-light);
 }
 
-.achievements__layout {
+.achievements__container {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 48px;
-    align-items: center;
+    gap: 56px;
+    align-items: start;
 }
 
-.achievements__content p {
-    color: rgba(255, 255, 255, 0.72);
-    margin-bottom: 32px;
-}
-
-.achievements__highlights {
+.achievements__description {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 24px;
+    gap: 16px;
+    margin-top: 24px;
 }
 
-.highlight {
-    padding: 24px;
+.achievements__description p {
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.achievements__stats {
+    list-style: none;
+    display: grid;
+    gap: 18px;
+    margin-top: 40px;
+}
+
+.achievements__stats li {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 20px 22px;
     border-radius: var(--radius-md);
     background: rgba(255, 255, 255, 0.08);
-    text-align: center;
     border: 1px solid rgba(255, 255, 255, 0.12);
     backdrop-filter: blur(6px);
 }
 
-.highlight__value {
-    font-size: 36px;
+.achievements__stat-value {
+    font-size: 32px;
     font-weight: 800;
 }
 
-.highlight__label {
-    display: block;
-    margin-top: 8px;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    opacity: 0.75;
+.achievements__stat-label {
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 600;
+    letter-spacing: 0.02em;
 }
 
-.achievements__media img {
+.achievements__carousel {
+    --carousel-item-width: min(480px, 100%);
+}
+
+.achievements__slide {
+    position: relative;
     border-radius: var(--radius-lg);
-    box-shadow: 0 26px 60px rgba(0, 0, 0, 0.26);
+    overflow: hidden;
+    min-height: 340px;
+    box-shadow: 0 26px 60px rgba(8, 12, 19, 0.36);
+}
+
+.achievements__slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.achievements .carousel__control {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+    box-shadow: none;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.achievements .carousel__control:hover,
+.achievements .carousel__control:focus-visible {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+    border-color: transparent;
+}
+
+.achievements .carousel__dot {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.achievements .carousel__dot[aria-current="true"],
+.achievements .carousel__dot:hover,
+.achievements .carousel__dot:focus-visible {
+    background: var(--accent-light);
 }
 
 /* Schedule */
@@ -902,9 +1056,8 @@ a:hover {
     }
 
     .about__layout,
-    .achievements__layout,
+    .achievements__container,
     .coaches__grid,
-    .testimonials__grid,
     .schedule__grid,
     .pricing__grid,
     .signup__layout,
@@ -912,8 +1065,8 @@ a:hover {
         grid-template-columns: 1fr;
     }
 
-    .achievements__highlights {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+    .achievements__container {
+        gap: 40px;
     }
 }
 
@@ -940,8 +1093,6 @@ a:hover {
     }
 
     .programs__grid,
-    .achievements__highlights,
-    .testimonials__grid,
     .schedule__grid,
     .pricing__grid {
         grid-template-columns: 1fr;
@@ -952,8 +1103,8 @@ a:hover {
         align-items: flex-start;
     }
 
-    .highlight {
-        text-align: left;
+    .carousel {
+        --carousel-gap: 20px;
     }
 }
 
@@ -997,6 +1148,19 @@ a:hover {
 
     .pricing-card li span {
         max-width: 100%;
+    }
+
+    .carousel {
+        --carousel-gap: 16px;
+    }
+
+    .carousel__control {
+        width: 38px;
+        height: 38px;
+    }
+
+    .achievements__slide {
+        min-height: 260px;
     }
 
     .stats__grid {
