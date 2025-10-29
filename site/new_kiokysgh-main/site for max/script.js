@@ -188,4 +188,27 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
+
+    const accordionLists = document.querySelectorAll('[data-accordion]');
+    accordionLists.forEach(list => {
+        const items = list.querySelectorAll('.faq-item');
+        items.forEach(item => {
+            const trigger = item.querySelector('.faq-item__question');
+            const answer = item.querySelector('.faq-item__answer');
+            if (!trigger || !answer) return;
+
+            trigger.addEventListener('click', () => {
+                const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+                trigger.setAttribute('aria-expanded', String(!isExpanded));
+                answer.hidden = isExpanded;
+            });
+
+            trigger.addEventListener('keydown', event => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    trigger.click();
+                }
+            });
+        });
+    });
 });
