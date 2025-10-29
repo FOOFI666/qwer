@@ -130,6 +130,13 @@
                 <article class="program-card">
                     <div class="program-card__image" style="background-image: url('image.jpg');"></div>
                     <div class="program-card__content">
+                        <h3>Ашихара карате для взрослых</h3>
+                        <p>Ашихара для взрослых — это практическая система защиты с акцентом на тактику и функциональную силу. Тренировки помогают прокачать выносливость, отточить реакцию и почувствовать уверенность в реальных ситуациях, сохраняя уважение к традициям.</p>
+                    </div>
+                </article>
+                <article class="program-card">
+                    <div class="program-card__image" style="background-image: url('image.jpg');"></div>
+                    <div class="program-card__content">
                         <h3>Кикбоксинг для девушек</h3>
                         <p>Кикбоксинг для девушек — это баланс эффективной тренировки и безопасности. Адаптированные программы помогают сбросить напряжение, укрепить мышцы и получить рельеф без перегрузок в атмосфере поддержки.</p>
                     </div>
@@ -244,7 +251,23 @@
     <section id="achievements" class="section achievements">
         <div class="container achievements__container">
             <div class="achievements__content">
-                <h2 class="section__title">Путь к победам</h2>
+                <div class="section__heading">
+                    <h2 class="section__title">Путь к победам</h2>
+                    <ul class="achievements__stats" role="list">
+                        <li>
+                            <span class="achievements__stat-value">12+</span>
+                            <span class="achievements__stat-label">международных турниров в сезоне</span>
+                        </li>
+                        <li>
+                            <span class="achievements__stat-value">4</span>
+                            <span class="achievements__stat-label">новых чёрных пояса каждый год</span>
+                        </li>
+                        <li>
+                            <span class="achievements__stat-value">98%</span>
+                            <span class="achievements__stat-label">спортсменов возвращаются в клуб</span>
+                        </li>
+                    </ul>
+                </div>
                 <div class="achievements__description">
                     <p>Мы предлагаем:</p>
                     <ul>
@@ -259,20 +282,6 @@
                     </ul>
                     <p>Приводите ребенка в «ФАЙТО» и подарите ему путевку в уверенное будущее!</p>
                 </div>
-                <ul class="achievements__stats" role="list">
-                    <li>
-                        <span class="achievements__stat-value">12+</span>
-                        <span class="achievements__stat-label">международных турниров в сезоне</span>
-                    </li>
-                    <li>
-                        <span class="achievements__stat-value">4</span>
-                        <span class="achievements__stat-label">новых чёрных пояса каждый год</span>
-                    </li>
-                    <li>
-                        <span class="achievements__stat-value">98%</span>
-                        <span class="achievements__stat-label">спортсменов возвращаются в клуб</span>
-                    </li>
-                </ul>
             </div>
             <div class="carousel achievements__carousel" data-carousel>
                 <button class="carousel__control carousel__control--prev" type="button" aria-label="Предыдущее фото" data-carousel-prev>
@@ -406,10 +415,10 @@
                 <h2 class="section__title">Контакты</h2>
                 <p>Зал находится в 5 минутах от метро. Парковка для посетителей доступна по предварительному запросу.</p>
                 <ul class="contacts__list">
-                    <li><span>Адрес:</span> Санкт-Петербург, пр. Просвещения, 45</li>
-                    <li><span>Телефон:</span> <a href="tel:+78120000000">+7 (812) 000-00-00</a></li>
+                    <li><span>Адрес:</span> г. Москва, ул. Новочеркасский бульвар, д.13</li>
+                    <li><span>Телефон:</span> <a href="tel:+79690693266">+7 (969) 069-32-66</a></li>
                     <li><span>Почта:</span> <a href="mailto:info@faito-club.ru">info@faito-club.ru</a></li>
-                    <li><span>Мы в соцсетях:</span> <a href="https://vk.com" target="_blank" rel="noopener">VK</a>, <a href="https://t.me" target="_blank" rel="noopener">Telegram</a></li>
+                    <li><span>Мы в соцсетях:</span> <a href="https://vk.com" target="_blank" rel="noopener">VK</a>, <a href="https://t.me/Sempai_Ivanov" target="_blank" rel="noopener">Telegram</a>, <a href="https://wa.me/79690693266" target="_blank" rel="noopener">WhatsApp</a></li>
                 </ul>
             </div>
             <div class="contacts__map" aria-hidden="true">
@@ -420,11 +429,25 @@
 </main>
 
 <footer class="site-footer">
+    <div class="site-footer__map">
+        <iframe src="https://yandex.ru/map-widget/v1/?ll=37.744917%2C55.643847&mode=whatshere&whatshere%5Bpoint%5D=37.744917%2C55.643847&whatshere%5Bzoom%5D=17&z=16" allowfullscreen title="Карта — г. Москва, ул. Новочеркасский бульвар, д.13"></iframe>
+    </div>
     <div class="container site-footer__content">
         <p>© 2024 Файто. Все права защищены.</p>
         <a href="#hero">Вернуться наверх</a>
     </div>
 </footer>
+
+<div class="social-fab" data-social-fab>
+    <button class="social-fab__toggle" type="button" aria-expanded="false" aria-controls="social-fab-menu">
+        <span class="sr-only">Открыть контакты в мессенджерах</span>
+    </button>
+    <ul class="social-fab__list" id="social-fab-menu" role="menu">
+        <li role="none"><a role="menuitem" href="https://t.me/Sempai_Ivanov" target="_blank" rel="noopener">Telegram</a></li>
+        <li role="none"><a role="menuitem" href="https://wa.me/79690693266" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li role="none"><a role="menuitem" href="https://vk.com" target="_blank" rel="noopener">VK</a></li>
+    </ul>
+</div>
 
 <script src="script.js"></script>
 </body>
