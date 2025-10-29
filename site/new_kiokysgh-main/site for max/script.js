@@ -150,4 +150,42 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     carousels.forEach(initCarousel);
+
+    const socialFab = document.querySelector('[data-social-fab]');
+    if (socialFab) {
+        const fabToggle = socialFab.querySelector('.social-fab__toggle');
+        const fabList = socialFab.querySelector('.social-fab__list');
+
+        const closeFab = () => {
+            socialFab.classList.remove('social-fab--open');
+            if (fabToggle) {
+                fabToggle.setAttribute('aria-expanded', 'false');
+            }
+        };
+
+        if (fabToggle && fabList) {
+            fabToggle.addEventListener('click', event => {
+                event.stopPropagation();
+                const isOpen = socialFab.classList.toggle('social-fab--open');
+                fabToggle.setAttribute('aria-expanded', String(isOpen));
+            });
+
+            fabList.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', closeFab);
+            });
+
+            document.addEventListener('click', event => {
+                if (!socialFab.classList.contains('social-fab--open')) return;
+                if (!socialFab.contains(event.target)) {
+                    closeFab();
+                }
+            });
+
+            document.addEventListener('keydown', event => {
+                if (event.key === 'Escape') {
+                    closeFab();
+                }
+            });
+        }
+    }
 });
