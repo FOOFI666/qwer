@@ -78,6 +78,14 @@ a:hover {
     color: var(--text-muted);
 }
 
+.section__actions {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
 /* Header */
 .site-header {
     position: fixed;
@@ -1013,6 +1021,15 @@ a:hover {
     gap: 24px;
 }
 
+.pricing-card__actions {
+    margin-top: auto;
+    display: flex;
+}
+
+.pricing-card__actions .cta-btn {
+    width: 100%;
+}
+
 .pricing-card h3 {
     font-size: 24px;
     font-weight: 700;
@@ -1432,7 +1449,7 @@ a:hover {
     bottom: 28px;
     right: 28px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: flex-end;
     gap: 14px;
     z-index: 40;
