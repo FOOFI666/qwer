@@ -211,4 +211,86 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+
+    const modalElements = document.querySelectorAll('[data-modal]');
+    if (modalElements.length) {
+        const modalRegistry = new Map();
+        modalElements.forEach(modal => {
+            modalRegistry.set(modal.dataset.modal, modal);
+            modal.setAttribute('aria-hidden', 'true');
+        });
+
+        const openButtons = document.querySelectorAll('[data-modal-open]');
+        let activeModal = null;
+        let lastFocusedElement = null;
+
+        const focusableSelectors = 'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+        const trapFocus = event => {
+            if (event.key !== 'Tab' || !activeModal) return;
+            const focusable = Array.from(activeModal.querySelectorAll(focusableSelectors)).filter(element => !element.hasAttribute('hidden'));
+            if (!focusable.length) return;
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+
+            if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first.focus();
+            }
+        };
+
+        const closeModal = () => {
+            if (!activeModal) return;
+            activeModal.classList.remove('modal--open');
+            activeModal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            const targetToFocus = lastFocusedElement;
+            activeModal = null;
+            lastFocusedElement = null;
+            if (targetToFocus instanceof HTMLElement) {
+                targetToFocus.focus();
+            }
+            document.removeEventListener('keydown', trapFocus, true);
+        };
+
+        const openModal = modalId => {
+            const modal = modalRegistry.get(modalId);
+            if (!modal || activeModal === modal) return;
+            lastFocusedElement = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+            modal.classList.add('modal--open');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            activeModal = modal;
+            const focusTarget = modal.querySelector('[data-modal-initial-focus]') || modal.querySelector(focusableSelectors);
+            if (focusTarget instanceof HTMLElement) {
+                focusTarget.focus();
+            }
+            document.addEventListener('keydown', trapFocus, true);
+        };
+
+        openButtons.forEach(button => {
+            const modalId = button.getAttribute('data-modal-open');
+            button.addEventListener('click', () => openModal(modalId));
+        });
+
+        modalRegistry.forEach(modal => {
+            modal.querySelectorAll('[data-modal-close]').forEach(control => {
+                control.addEventListener('click', closeModal);
+            });
+
+            const overlay = modal.querySelector('.modal__overlay');
+            if (overlay) {
+                overlay.addEventListener('click', closeModal);
+            }
+        });
+
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    }
 });
